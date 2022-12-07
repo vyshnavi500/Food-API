@@ -15,7 +15,7 @@ function App() {
   const [ dietType, setDietType] = useState('balanced')
   const [name, setName] = useState('')
 
-  const url = `https://api.edamam.com/search?q=${searchValue}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=6&calories=591-722&mealType=${mealType}&diet=${dietType}`
+  const url = `https://api.edamam.com/search?q=${searchValue}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=12&calories=591-722&mealType=${mealType}&diet=${dietType}`
 
    useEffect(()=>{
     getReceipeInfo()
