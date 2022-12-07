@@ -3,7 +3,7 @@ import './App.css';
 import Axios from 'axios';
 import { YOUR_APP_ID, YOUR_APP_KEY  } from './constants';
 import Card from './Card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 
 
@@ -11,13 +11,16 @@ function App() {
  
   const [apiData, setApiData] =useState([]);
   const [searchValue, setSearchValue] = useState("")
-  const [ mealType, setMealType] = useState('')
-  const [ dietType, setDietType] = useState('')
+  const [ mealType, setMealType] = useState('lunch')
+  const [ dietType, setDietType] = useState('balanced')
   const [name, setName] = useState('')
 
   const url = `https://api.edamam.com/search?q=${searchValue}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=6&calories=591-722&mealType=${mealType}&diet=${dietType}`
 
-
+   useEffect(()=>{
+    getReceipeInfo()
+  },[])
+ 
   const getReceipeInfo = async() =>{
     var result = await Axios.get(url);
     console.log(result)
